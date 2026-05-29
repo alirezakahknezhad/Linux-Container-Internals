@@ -1,4 +1,4 @@
-# 🧑‍💻 PART 4 - clone() - System Call
+# 🧑‍💻 PART 6 - clone System Call
 ## clone()
 In the Linux operating system, a process or thread is created by a syscall called clone.<br>
 🟥 Both `fork` and `pthread _create` use `clone()` in their implementation.<br>
