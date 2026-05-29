@@ -180,10 +180,10 @@ alireza@rootium:~/Linux-Container-Internals$ ./clone-process
 #include <sys/types.h>
 #include <sys/wait.h>
 
-/* ── Stack size for the thread ── */
+/*Stack size for the thread*/
 #define STACK_SIZE (1024 * 64)          /* 64 KB*/
 
-/* ── Shared data we will modify ── */
+/*Shared data we will modify*/
 static int shared_variable = 100;
 
 /* ─────────────────────────────────────────────
@@ -217,12 +217,6 @@ int main(void)
     pid_t thread_tid;
     int   status;
 
-    /*
-     * Allocate a SEPARATE stack for the thread.
-     * Even though memory is shared, each thread needs its own stack
-     * for its own local variables and call frames.
-     * Stack grows DOWNWARD — pass the TOP.
-     */
     char *thread_stack = malloc(STACK_SIZE);
     if (!thread_stack) {
         perror("malloc");
@@ -237,8 +231,6 @@ int main(void)
            (void *)&shared_variable);
 
     /*
-     * ── KEY FLAGS ──
-     *
      * CLONE_VM    : share the SAME virtual address space  - makes it a thread
      * CLONE_FS    : share filesystem root, cwd, umask
      * CLONE_FILES : share file descriptor table
