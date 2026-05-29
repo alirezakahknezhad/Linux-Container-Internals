@@ -60,10 +60,10 @@ Its manual shows us the following prototype :
 #include <sys/types.h>
 #include <sys/wait.h>
 
-/* ── Stack size for the child ── */
+/*Stack size for the child*/
 #define STACK_SIZE (1024 * 64)          /* 64 KB */
 
-/* ── Shared data we will modify ── */
+/*Shared data we will modify*/
 static int shared_variable = 100;
 
 /* ─────────────────────────────────────────────
@@ -111,18 +111,15 @@ int main(void)
            (void *)&shared_variable);
 
     /*
-     * ── KEY FLAGS ──
-     *
      * SIGCHLD   : send SIGCHLD to parent when child exits (needed for wait())
-     *
      * Notably ABSENT:
-     *   NO CLONE_VM    → child gets its OWN copy of address space
-     *   NO CLONE_FS    → child gets its OWN filesystem context
-     *   NO CLONE_FILES → child gets its OWN file descriptor table
+     *   NO CLONE_VM : child gets its OWN copy of address space
+     *   NO CLONE_FS  : child gets its OWN filesystem context
+     *   NO CLONE_FILES : child gets its OWN file descriptor table
      */
     child_pid = clone(child_func,
                       stack_top,
-                      SIGCHLD,          /* <── no CLONE_VM = separate memory */
+                      SIGCHLD,          /*no CLONE_VM = separate memory */
                       NULL);
 
     if (child_pid == -1) {
