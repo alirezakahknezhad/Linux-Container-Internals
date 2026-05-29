@@ -1,4 +1,4 @@
-# 🧑‍💻 Chapter 7 - Fork Syscall
+# 🧑‍💻 Chapter 7 - fork System Call
 ## 🧩 Brief explanation
 The fork() system call is one of the basic process creation mechanisms in Unix-like operating systems, including Linux. This call allows a running process to create a new process by duplicating itself.
 
