@@ -3,7 +3,7 @@
 In the Linux operating system, a process or thread is created by a syscall called clone.<br>
 🟥 Both `fork` and `pthread _create` use `clone()` in their implementation.<br>
 Its manual shows us the following prototype : 
-```
+```c
        /* Prototype for the glibc wrapper function */
 
        #define _GNU_SOURCE
@@ -50,7 +50,7 @@ Its manual shows us the following prototype :
 
 ## 🛠️ Usage examples
 ### 1️⃣ Example 1 - clone as a process
-```
+```c
 #define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
@@ -150,7 +150,7 @@ int main(void)
 }
 ```
 **output:**
-```
+```bash
 alireza@rootium:~/Linux-Container-Internals$ ./clone-process 
 [PARENT PROCESS] PID     : 111949
 [PARENT PROCESS] shared_variable initial value: 100
@@ -171,7 +171,7 @@ alireza@rootium:~/Linux-Container-Internals$ ./clone-process
 ```
 
 ### 2️⃣ Example 2 - clone as a thread
-```
+```c
 #define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
@@ -274,7 +274,7 @@ int main(void)
 ```
 
 **output:**
-```
+```bash
 alireza@rootium:~/Linux-Container-Internals$ ./clone-thread 
 [PARENT THREAD]  PID     : 112874
 [PARENT THREAD]  shared_variable initial value: 100
