@@ -181,7 +181,7 @@ root@rootium:~# lsns -t uts
 4026532650 uts       1  1843 root    |-/usr/lib/systemd/systemd-logind
 4026532653 uts       3  1818 root    |-/bin/sh /usr/lib/systemd/scripts/chronyd-starter.sh -n -F 1
 4026532654 uts       1  1836 polkitd |-/usr/lib/polkit-1/polkitd --no-debug --log-level=notice
-4026532846 uts       1  7408 root    `-/usr/libexec/fwupd/fwupd
+4026532846 uts       1  7408 root    -/usr/libexec/fwupd/fwupd
 4026532658 uts      30  3045 root    /sbin/init
 4026532730 uts       1  5057 65535   /pause
 4026532735 uts       1  5108 65535   /pause
